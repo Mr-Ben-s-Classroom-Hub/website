@@ -165,11 +165,17 @@ export default function HeroGeometric({
 
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center justify-center h-full">
-          {/* Logo with Netflix-style fade-in animation, positioned above text */}
+          {/* Logo with zoom-in animation from center, then move up */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.5, ease: [0.25, 0.4, 0.25, 1] }}
+            initial={{ opacity: 0, scale: 3, y: "20vh" }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ 
+              duration: 2.5, 
+              delay: 1.5, 
+              ease: [0.25, 0.4, 0.25, 1],
+              scale: { duration: 1.2, ease: [0.25, 0.4, 0.25, 1] },
+              y: { duration: 1.3, delay: 1.2, ease: [0.25, 0.4, 0.25, 1] }
+            }}
             className="mb-8 md:mb-12 inline-block"
           >
             <Image
@@ -212,7 +218,7 @@ export default function HeroGeometric({
                 onClick={() => setShowCards(true)}
                 className="px-8 py-4 text-lg bg-gradient-to-r from-indigo-600 to-rose-600 hover:from-indigo-700 hover:to-rose-700 text-white rounded-full shadow-lg transition-all duration-300 ease-in-out"
               >
-                Enter Site
+                Let's Go
               </Button>
             </motion.div>
           ) : (
